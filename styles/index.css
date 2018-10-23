@@ -24,7 +24,7 @@ h1 {
 }
 
 /* Dropdown button on hover & focus */
-.dropbtn: hover, .dropbtn: focus {
+.dropbtn hover, .dropbtn focus {
 	background-color: white;
 }
 
