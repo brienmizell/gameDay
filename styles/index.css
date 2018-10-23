@@ -9,3 +9,11 @@ h1 {
 	 font-weight: lighter;
 	 margin-top: initial;
 }
+
+/* Dropdown Button */
+.dropbtn {
+	background-color: #3498;
+/* 	color: 
+  need to add a color!
+  */ 
+}
