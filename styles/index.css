@@ -1,3 +1,11 @@
 body {
-	background-color: beige;
+	background-color: black;
+}
+
+h1 {
+	 font-family: 'Cabin Sketch', cursive;
+	 color: red;
+	 font-size: 55px;
+	 font-weight: lighter;
+	 margin-top: initial;
 }
