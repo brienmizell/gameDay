@@ -16,6 +16,9 @@ h1 {
 	background-color:palegoldenrod;
 	color: red;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	font-size: 24px;
-	padding: 30px;
+	font-size: 28px;
+	padding: 25px;
+	border-width: 5px;
+	border-style: double; 
+	border-color: gray;
 }
