@@ -3,17 +3,33 @@ body {
 }
 
 h1 {
-	 font-family: 'Cabin Sketch', cursive;
-	 color: red;
-	 font-size: 55px;
-	 font-weight: lighter;
-	 margin-top: initial;
+	font-family: 'Cabin Sketch', cursive;
+	color: red;
+	/* font-size: 55px; */
+	font-weight: lighter;
+	margin-top: initial;
 }
 
 /* Dropdown Button */
 .dropbtn {
 	background-color: #3498;
-/* 	color: 
+	/* 	color: 
   need to add a color!
-  */ 
+  */
+}
+
+@media (max-width: 480px) {
+	#mainHeader {
+		font-size: 20px;
+	}
+}
+@media (min-width: 768px) {
+	#mainHeader {
+		font-size: 40px;
+	}
+}
+@media (min-width: 1200px) {
+	#mainHeader {
+		font-size: 55px;
+	}
 }
