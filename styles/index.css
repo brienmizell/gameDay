@@ -1,5 +1,16 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
 body {
 	background-color: black;
+	margin: 0;
 }
 
 h1 {
@@ -7,7 +18,11 @@ h1 {
 	color: red;
 	/* font-size: 55px; */
 	font-weight: lighter;
-	margin-top: initial;
+	background-color: rgb(54, 53, 53);
+	margin: 0;
+	padding: 5px 0;
+	width: 100%;
+	text-align: center;
 }
 
 /* Dropdown Button */
