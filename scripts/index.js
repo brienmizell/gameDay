@@ -21,7 +21,11 @@ window.onclick = function(event) {
 };
 
 let pulledData;
-fetch('https://api.sportradar.us/ncaafb-t1/2018/reg/9/schedule.json?api_key=73r466k6j37hj93act4p9nwn')
+fetch('https://my-little-cors-proxy.herokuapp.com/https://api.fantasydata.net/v3/cfb/stats/JSON/Teams', {
+	headers: {
+		'Ocp-Apim-Subscription-Key': 'c72fe47dccf64d6f932fcfaa1c3bbc47'
+	}
+})
 	.then((res) => res.json())
 	.then((data) => (pulledData = data))
 	.then(() => console.log(pulledData));
