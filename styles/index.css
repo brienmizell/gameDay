@@ -36,7 +36,6 @@ h1 {
 	border-style: double; 
 	border-color: gray;
 	cursor: pointer;
-
 }
 
 @media (max-width: 480px) {
