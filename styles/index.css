@@ -22,7 +22,6 @@ h1 {
 	border-style: double; 
 	border-color: gray;
 	cursor: pointer;
-	position: inherit;
 }
 
 /* The container <div> - needed to
