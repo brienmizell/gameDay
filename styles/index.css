@@ -1,14 +1,28 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
 body {
 	background-color: black;
+	margin: 0;
 }
 
 h1 {
-	 font-family: 'Cabin Sketch', cursive;
-	 color: red;
-	 font-size: 55px;
-	 font-weight: lighter;
-	 margin-top: initial;
-
+	font-family: 'Cabin Sketch', cursive;
+	color: red;
+	/* font-size: 55px; */
+	font-weight: lighter;
+	background-color: rgb(54, 53, 53);
+	margin: 0;
+	padding: 5px 0;
+	width: 100%;
+	text-align: center;
 }
 
 /* Dropdown Button */
@@ -22,6 +36,23 @@ h1 {
 	border-style: double; 
 	border-color: gray;
 	cursor: pointer;
+
+}
+
+@media (max-width: 480px) {
+	#mainHeader {
+		font-size: 20px;
+	}
+}
+@media (min-width: 768px) {
+	#mainHeader {
+		font-size: 40px;
+	}
+}
+@media (min-width: 1200px) {
+	#mainHeader {
+		font-size: 55px;
+	}
 }
 
 /* The container <div> - needed to
