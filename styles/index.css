@@ -44,7 +44,7 @@ h1 {
 
 #myInput {
 	/* add a search icon to input */
-	background-image: url('/css/searchicon.png');
+	background-image: url('../searchBackground.png');
 	/* position the search icon */
 	background-position: 10px 12 px;
 	/* do not repeat the icon image */
