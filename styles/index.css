@@ -80,5 +80,5 @@ h1 {
 #myUL a:hover:not(.header) {
 	/* add a hover effect to all links,
 	except for headers */
-	background-color: #eee;
+	background-color: grey;
 }
