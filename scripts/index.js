@@ -53,23 +53,24 @@ function convertGamesToElement(gameData) {
 		let awayTeamName = element.AwayTeamName;
 		let awayTeamScore = element.AwayTeamScore;
 
+		//HOME TEAM
 		let gameDiv = document.createElement('div');
 		gameDiv.classList.add('eachGame');
 
 		let homeTeamDiv = document.createElement('p');
 		homeTeamDiv.classList.add(homeTeamName.split(' ').join('-'));
-		gameDiv.appendChild(homeTeamDiv);
+		homeTeamDiv.textContent = homeTeamName;
+		section.appendChild(homeTeamDiv);
+		// gameDiv.appendChild(homeTeamDiv);
 
+		console.log(homeTeamDiv.textContent);
+		// AWAY TEAM
 		let awayTeamDiv = document.createElement('div');
 		awayTeamDiv.classList.add(awayTeamName.split(' ').join('-'));
 		gameDiv.appendChild(awayTeamDiv);
 		let gameDataDiv = document.createElement('div');
 		gameDataDiv.classList.add('gameDataDiv');
 		gameDiv.appendChild(gameDataDiv);
-
-		homeTeamDiv.textContent = homeTeamName;
-		section.appendChild(homeTeamDiv);
-		console.log(homeTeamDiv.textContent);
 
 		// console.log(homeTeamName.class);
 		// homeGameDiv.classList.add(homeTeamName.split(' ').join('-'));
