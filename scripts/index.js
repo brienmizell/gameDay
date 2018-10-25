@@ -15,3 +15,12 @@ function getHomeTeamById() {
 	// when user chooses a team name from drop-down returns team id
 	// returns HomeTeamID
 }
+
+function myFunction() {
+	// declare variable
+	var input, filter, ul, li, a, i;
+	input = document.getElementById('myInput');
+	filter = input.nodeValue.toUpperCase();
+	ul = document.getElementById('myUL');
+	li = ul.getElementsByTagName('li');
+}
