@@ -38,6 +38,10 @@ h1 {
 	cursor: pointer;
 }
 
+.dropdown-content {
+	left: 0;
+}
+
 @media (max-width: 480px) {
 	#mainHeader {
 		font-size: 20px;
@@ -91,6 +95,7 @@ h1 {
 .dropdown:hover .dropbtn {
 	background-color: #a0e4ff;
 }
+
 
 /* 
 Show the dropdown menu
