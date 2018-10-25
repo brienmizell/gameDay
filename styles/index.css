@@ -46,7 +46,7 @@ h1 {
 	/* add a search icon to input */
 	background-image: url('../searchBackground.png');
 	/* position the search icon */
-	background-position: 10px 12 px;
+	background-position: left center;
 	/* do not repeat the icon image */
 	background-repeat: no-repeat;
 	/* full width */
