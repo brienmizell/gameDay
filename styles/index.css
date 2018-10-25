@@ -41,3 +41,19 @@ h1 {
 		font-size: 55px;
 	}
 }
+
+#myInput {
+	/* add a search icon to input */
+	background-image: url('/css/searchicon.png');
+	/* position the search icon */
+	background-position: 10px 12 px;
+	/* do not repeat the icon image */
+	background-repeat: no-repeat;
+	/* full width */
+	width: 100%;
+	font-size: 16px;
+	padding: 12px 20px 12px 40px;
+	border: 1px solid #ddd;
+	margin-bottom: 12px;
+}
+
