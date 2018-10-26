@@ -52,6 +52,13 @@ function convertGamesToElement(gameData) {
 		let homeTeamScore = element.HomeTeamScore;
 		let awayTeamName = element.AwayTeamName;
 		let awayTeamScore = element.AwayTeamScore;
+		// let gameLocationData = element.
+
+		// AWAY TEAM
+		let awayTeamDiv = document.createElement('p');
+		awayTeamDiv.classList.add(awayTeamName.split(' ').join('-'));
+		awayTeamDiv.textContent = awayTeamName;
+		section.appendChild(awayTeamDiv);
 
 		//HOME TEAM
 		let gameDiv = document.createElement('div');
@@ -64,13 +71,10 @@ function convertGamesToElement(gameData) {
 		// gameDiv.appendChild(homeTeamDiv);
 
 		console.log(homeTeamDiv.textContent);
-		// AWAY TEAM
-		let awayTeamDiv = document.createElement('div');
-		awayTeamDiv.classList.add(awayTeamName.split(' ').join('-'));
-		gameDiv.appendChild(awayTeamDiv);
-		let gameDataDiv = document.createElement('div');
+
+		let gameDataDiv = document.createElement('p');
 		gameDataDiv.classList.add('gameDataDiv');
-		gameDiv.appendChild(gameDataDiv);
+		section.appendChild(gameDataDiv);
 
 		// console.log(homeTeamName.class);
 		// homeGameDiv.classList.add(homeTeamName.split(' ').join('-'));
