@@ -124,7 +124,7 @@ body {
 }
 #gamescore {
 	color: red;
-	font-size: 250%;
-	/* font-family: 'Courier New', Courier, monospace; */
+	font-size: 300%;
+	font-family: 'Courier New', Courier, monospace;
 	text-shadow: -.5px 0 white, 0 .5px white, .5px 0 white, 0 -.5px white;
 }
