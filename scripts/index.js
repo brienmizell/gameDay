@@ -1,4 +1,3 @@
-
 // When the user clicks on the button,
 // toggle between hiding and showing
 // the dropdown content
@@ -25,7 +24,6 @@ window.onclick = function(event) {
 		}
 	}
 };
-
 
 let pulledData;
 fetch(sportsAPI, {
@@ -54,15 +52,15 @@ function myFunction() {
 	ul = document.getElementById('myUL');
 	li = ul.getElementsByTagName('li');
 
-	// loop through all list items, 
+	// loop through all list items,
 	// and hide those whoe dont
 	// match the search query
 	for (i = 0; i < li.length; i++) {
-		a = li[i].getElementsByTagName("a")[0];
+		a = li[i].getElementsByTagName('a')[0];
 		if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-			li[i].style.display = "";
+			li[i].style.display = '';
 		} else {
-			li[i].style.display = "none";
+			li[i].style.display = 'none';
 		}
 	}
 }
@@ -76,6 +74,9 @@ function convertGamesToElement(gameData) {
 		let homeTeamScore = element.HomeTeamScore;
 		let awayTeamName = element.AwayTeamName;
 		let awayTeamScore = element.AwayTeamScore;
+		let stadiumName = element.Stadium['Name'];
+		let gameCity = element.Stadium['City'];
+		let gameState = element.Stadium['State'];
 		// let gameLocationData = element.
 
 		// AWAY TEAM
@@ -87,17 +88,15 @@ function convertGamesToElement(gameData) {
 		//HOME TEAM
 		let gameDiv = document.createElement('div');
 		gameDiv.classList.add('eachGame');
-
 		let homeTeamDiv = document.createElement('p');
 		homeTeamDiv.classList.add(homeTeamName.split(' ').join('-'));
 		homeTeamDiv.textContent = homeTeamName;
 		section.appendChild(homeTeamDiv);
-		// gameDiv.appendChild(homeTeamDiv);
 
-		console.log(homeTeamDiv.textContent);
-
+		// game info
 		let gameDataDiv = document.createElement('p');
 		gameDataDiv.classList.add('gameDataDiv');
+		gameDataDiv.textContent = stadiumName + ' ' + gameCity + ', ' + gameState;
 		section.appendChild(gameDataDiv);
 
 		// console.log(homeTeamName.class);
