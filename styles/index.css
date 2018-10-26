@@ -98,17 +98,17 @@ body {
   }
   
 .hometeam {
-	color: white;
+	color:blue;
 }
 
 .theHomeTeam {
 	color:white;
+	
 }
 
 .theAwayTeam {
 	color:grey;
 }
-
 
 .flex-container {
 	flex-flow: row wrap;
@@ -121,4 +121,9 @@ body {
 	line-height: 50px;
 	font-size: 25px;
 	flex-direction: column;
+}
+.gamescore {
+	color: red;
+	/* font-family: 'Courier New', Courier, monospace; */
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
