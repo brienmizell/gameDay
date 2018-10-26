@@ -56,6 +56,76 @@ h1 {
 	}
 }
 
+
+#myInput {
+	/* add a search icon to input */
+	background-image: url('../searchBackground.png');
+	/* position the search icon */
+	background-position: left center;
+	/* do not repeat the icon image */
+	background-repeat: no-repeat;
+	/* full width */
+	width: 100%;
+	font-size: 16px;
+	padding: 12px 20px 12px 40px;
+	border: 1px solid #ddd;
+	margin-bottom: 12px;
+}
+
+#myUL {
+	/* remove default list styling */
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+#myUL li a {
+	/* add a border to all links */
+	border: 1px solid #ddd;
+	/* prevent double borders */
+	margin-top: -1px;
+	background-color: #f6f6f6;
+	padding: 12px;
+	text-decoration: none;
+	font-size: 18px;
+	color: black;
+	display: block;
+}
+
+#myUL a:hover:not(.header) {
+	/* add a hover effect to all links,
+	except for headers */
+	background-color: grey;
+}
+
+/* animation */
+body {
+	margin:0; /*gets rid of white space around body*/
+	height:200vh;
+	background:url("https://static.pexels.com/photos/1440/city-road-street-buildings.jpg") no-repeat center / contain;
+	background-color:#eee;
+	position:relative; /*REQUIRED Sets up positioning for your footer*/
+  }
+  
+  #sticky {
+	width:100%;
+	padding:20px;
+	padding-bottom:16px;
+	background:black;
+	color:white;
+	font-weight:bold;
+	font-size:18px;
+	text-align:center;
+	position:fixed;    /*Here's what sticks it*/
+	bottom:0;          /*to the bottom of the body*/
+	left:0;            /*and to the left of the body.*/
+	
+	/*EFFECTS*/
+	border-top:1px solid red;
+	background-image:url(http://rs257.pbsrc.com/albums/hh234/tfm448/Snow411.gif~c200)
+  }
+  
+
 /* The container <div> - needed to
  position the dropdown content */
 .dropdown {
