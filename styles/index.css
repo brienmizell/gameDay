@@ -96,8 +96,13 @@ body {
 	border-top:2px solid gray;
 	background-image:url(http://rs257.pbsrc.com/albums/hh234/tfm448/Snow411.gif~c200)
   }
-.hometeam {
-	color: white;
+
+.theHomeTeam {
+	color:white;
+}
+
+.theAwayTeam {
+	color:grey;
 }
 
 
