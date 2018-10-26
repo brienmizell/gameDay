@@ -25,21 +25,6 @@ h1 {
 	text-align: center;
 }
 
-
-/* Dropdown Button */
-.dropbtn {
-	background-color: palegoldenrod;
-	color: red;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	font-size: 28px;
-	padding: 25px;
-	border-width: 5px;
-	border-style: double;
-	border-color: gray;
-	cursor: pointer;
-}
-
-
 @media (max-width: 480px) {
 	#mainHeader {
 		font-size: 20px;
@@ -100,7 +85,7 @@ h1 {
 
 /* animation */
 body {
-	margin:0; /*gets rid of white space around body*/
+	margin:0; /* gets rid of white space around body */
 	height:200vh;
 	background:url("https://static.pexels.com/photos/1440/city-road-street-buildings.jpg") no-repeat center / contain;
 	background-color:#eee;
@@ -124,58 +109,6 @@ body {
 	border-top:2px solid gray;
 	background-image:url(http://rs257.pbsrc.com/albums/hh234/tfm448/Snow411.gif~c200)
   }
-  
-
-/* The container <div> - needed to
- position the dropdown content */
-.dropdown {
-	position: relative;
-	display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-	display: none;
-	position: absolute;
-	background-color: aliceblue;
-	min-width: 160px;
-	box-shadow: 10px;
-	z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-	color: orange;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-}
-
-/* Dropdown button on hover & focus */
-.dropbtn:hover,
-.dropbtn:focus {
-	background-color: white;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {
-	background-color: whitesmoke;
-}
-
-.dropdown:hover .dropbtn {
-	background-color: #a0e4ff;
-}
-
-/* 
-Show the dropdown menu
-(use JS to add this class to the 
-.dropdown-content container
-when the user clicks on the dropdown button)
- */
-.show {
-	display: block;
-}
-
 .hometeam {
 	color: white;
 }
