@@ -64,19 +64,6 @@ h1 {
 	margin: 0;
 }
 
-#myUL li a {
-	/* add a border to all links */
-	border: 1px solid #ddd;
-	/* prevent double borders */
-	margin-top: -1px;
-	background-color: #f6f6f6;
-	padding: 12px;
-	text-decoration: none;
-	font-size: 18px;
-	color: black;
-	display: block;
-}
-
 #myUL a:hover:not(.header) {
 	/* add a hover effect to all links,
 	except for headers */
@@ -94,12 +81,12 @@ body {
   
   #sticky {
 	width:100%;
-	padding:20px;
+	padding:6px;
 	padding-bottom:16px;
 	background:black;
 	color:white;
 	font-weight:bold;
-	font-size:18px;
+	font-size:12px;
 	text-align:center;
 	position:fixed;    /*Here's what sticks it*/
 	bottom:0;          /*to the bottom of the body*/
@@ -112,6 +99,7 @@ body {
 .hometeam {
 	color: white;
 }
+
 
 .flex-container {
 	flex-flow: row wrap;
