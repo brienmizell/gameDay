@@ -121,7 +121,7 @@ body {
 	left:0;            /*and to the left of the body.*/
 	
 	/*EFFECTS*/
-	border-top:2px solid red;
+	border-top:2px solid gray;
 	background-image:url(http://rs257.pbsrc.com/albums/hh234/tfm448/Snow411.gif~c200)
   }
   
@@ -178,4 +178,19 @@ when the user clicks on the dropdown button)
 
 .hometeam {
 	color: white;
+}
+
+.flex-container {
+	flex-flow: row wrap;
+	background-color: crimson;
+}
+
+.flex-container > div {
+	background-color: grey;
+	width: 100px;
+	margin: 10px;
+	text-align: left;
+	line-height: 75px;
+	font-size: 16px;
+	flex-direction: column;
 }
