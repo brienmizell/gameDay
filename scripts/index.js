@@ -74,30 +74,41 @@ function convertGamesToElement(gameData) {
 		let homeTeamScore = element.HomeTeamScore;
 		let awayTeamName = element.AwayTeamName;
 		let awayTeamScore = element.AwayTeamScore;
-		let stadiumName = element.Stadium['Name'];
+		let stadiumName = element.Stadium['Name'].split('&#39;').join("'");
 		let gameCity = element.Stadium['City'];
 		let gameState = element.Stadium['State'];
+		let homeScore = element.HomeTeamScore || 0;
+		let awayScore = element.AwayTeamScore || 0;
+		let startTime = element.DateTime.substring(5, 10) + ' ' + element.DateTime.substring(11, 16);
+		// startTime.substring(4, 10);
 		// let gameLocationData = element.
+		let eachGameInfo = document.createElement('div');
+		eachGameInfo.classList.add('eachGame');
+		section.appendChild(eachGameInfo);
+
+		let theGameDiv = document.createElement('div');
+		theGameDiv.classList.add('gameContainer');
+		eachGameInfo.appendChild(theGameDiv);
 
 		// AWAY TEAM
-		let awayTeamDiv = document.createElement('p');
-		awayTeamDiv.classList.add(awayTeamName.split(' ').join('-'));
-		awayTeamDiv.textContent = awayTeamName;
-		section.appendChild(awayTeamDiv);
+		let awayTeamPara = document.createElement('p');
+		awayTeamPara.classList.add(awayTeamName.split(' ').join('-'));
+		awayTeamPara.classList.add('theAwayTeam');
+		awayTeamPara.textContent = awayTeamName + '    ' + awayScore;
+		theGameDiv.appendChild(awayTeamPara);
 
 		//HOME TEAM
-		let gameDiv = document.createElement('div');
-		gameDiv.classList.add('eachGame');
 		let homeTeamDiv = document.createElement('p');
 		homeTeamDiv.classList.add(homeTeamName.split(' ').join('-'));
-		homeTeamDiv.textContent = homeTeamName;
-		section.appendChild(homeTeamDiv);
+		homeTeamDiv.classList.add('theHomeTeam');
+		homeTeamDiv.textContent = homeTeamName + '    ' + homeScore;
+		theGameDiv.appendChild(homeTeamDiv);
 
 		// game info
 		let gameDataDiv = document.createElement('p');
 		gameDataDiv.classList.add('gameDataDiv');
-		gameDataDiv.textContent = stadiumName + ' ' + gameCity + ', ' + gameState;
-		section.appendChild(gameDataDiv);
+		gameDataDiv.textContent = startTime + ' ' + stadiumName + ' ' + gameCity + ', ' + gameState;
+		theGameDiv.appendChild(gameDataDiv);
 
 		// console.log(homeTeamName.class);
 		// homeGameDiv.classList.add(homeTeamName.split(' ').join('-'));
