@@ -115,13 +115,13 @@ body {
 
 .flex-container {
 	flex-flow: row wrap;
-	background-color: crimson;
+	background-color:crimson;
 }
 
 .flex-container > div {
-	background-color: grey;
-	text-align: left;
+	background-color: black;
+	text-align: center;
 	line-height: 50px;
-	font-size: 16px;
+	font-size: 25px;
 	flex-direction: column;
 }
