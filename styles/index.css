@@ -97,17 +97,13 @@ body {
 	background-image:url(http://rs257.pbsrc.com/albums/hh234/tfm448/Snow411.gif~c200)
   }
   
-.hometeam {
-<<<<<<< HEAD
-	color:white;
-=======
+.gameData {
 	color:skyblue;
 }
 
 .theHomeTeam {
-	color:white;
-	
->>>>>>> 88bef135e43facde3e394421ca9545188764fe3e
+	color: white;
+	font-size: 24px;
 }
 
 .theAwayTeam {
@@ -117,14 +113,18 @@ body {
 .flex-container {
 	flex-flow: row wrap;
 	background-color:crimson;
+
 }
+
+
 
 .flex-container > div {
 	background-color: black;
 	text-align: center;
 	line-height: 50px;
 	font-size: 25px;
-	flex-direction: column;
+	flex-direction: wrap;
+	flex-flow: wrap;
 }
 #gamescore {
 	color: red;
