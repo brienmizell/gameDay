@@ -2,23 +2,46 @@
 // toggle between hiding and showing
 // the dropdown content
 const sportsAPI =
-	'https://my-little-cors-proxy.herokuapp.com/https://api.fantasydata.net/v3/cfb/stats/json/GamesByWeek/2018/9';
+	'https://my-little-cors-proxy.herokuapp.com/https://api.fantasydata.net/v3/cfb/stats/json/GamesByWeek/2018/10';
 
 const gameListingArea = document.querySelector('[games-this-week]');
 
+
 let pulledData;
+
+function myFunction() {
+	document.getElementById('myDropdown').classList.toggle('show');
+}
+
+// Close the dropdown menu if the user
+// clicks outside of it
+window.onclick = function(event) {
+	if (!event.target.matches('.dropbtn')) {
+		var dropdowns = document.getElementsByClassName('dropdown-content');
+		var i;
+		for (i = 0; i < dropdowns.length; i++) {
+			var openDropdown = dropdowns[i];
+			if (openDropdown.classList.contains('show')) {
+				openDropdown.classList.remove('show');
+			}
+		}
+	}
+};
+
+let pulledSportsData;
+
 fetch(sportsAPI, {
 	headers: {
 		'Ocp-Apim-Subscription-Key': 'c72fe47dccf64d6f932fcfaa1c3bbc47'
 	}
 })
 	.then((whatsFetched) => whatsFetched.json()) //converts to .JSON
-	// .then((convertedWhatsFetched) => (pulledData = convertedWhatsFetched))
+	// .then((convertedWhatsFetched) => (pulledSportsData = convertedWhatsFetched))
 	.then(convertGamesToElement);
-// .then(() => console.log(pulledData));
+// .then(() => console.log(pulledSportsData));
 
-// .then(() => console.log(pulledData[34]))
-// .then(() => console.log(pulledData[34].AwayTeamName));
+// .then(() => console.log(pulledSportsData[34]))
+// .then(() => console.log(pulledSportsData[34].AwayTeamName));
 
 function getHomeTeamById() {
 	// when user chooses a team name from drop-down returns team id
@@ -107,3 +130,78 @@ function convertGamesToElement(gameData) {
 // - home team score
 // location of game
 // start time of game
+
+// geocode javascript
+
+// geocode();
+
+// get location form
+
+var locationForm = document.getElementById('location-form');
+
+// listen for submit
+locationForm.addEventListener('submit', geocode);
+
+function geocode(event) {
+	// prevent actual submit
+	event.preventDefault();
+	var location = document.getElementById('location-input').value;
+	axios
+		.get('https://maps.googleapis.com/maps/api/geocode/json', {
+			params: {
+				address: location,
+				key: 'AIzaSyB3cRW6zO8D3INc-NHDFA-0ck77gQAYpOU'
+			}
+		})
+		// .then(whatsFetched)
+		.then(function(response) {
+			// log full response
+			// let longlat =
+			// response.data.results[0].geometry.location.lat + ',' + response.data.results[0].geometry.location.lng;
+
+			console.log(response);
+			// formatted adress
+
+			var formattedAddress = response.data.results[0].formatted_address;
+			var formattedAddressOutput = `
+            <ul class="list-group">
+                <li class="list-group-item">${formattedAddress}</li>
+            </ul>
+            `;
+
+			// address Componets
+			var addressComponets = response.data.results[0].address_components;
+			var addressComponetsOutput = '<ul class="list-group">';
+			for (var i = 0; i < addressComponets.length; i++) {
+				addressComponetsOutput += `
+                <li class="list-group_item"><strong>${addressComponets[i].types[0]}</strong>: ${addressComponets[i]
+					.long_name}</li>
+                `;
+			}
+			addressComponetsOutput += '</ul>';
+
+			// geometry
+			var lat = response.data.results[0].geometry.location.lat;
+			var lng = response.data.results[0].geometry.location.lng;
+			var geometryOutput = `
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Latitude</strong>${lat}</li>
+                <li class="list-group-item"><strong>Longitude</strong>${lng}</li>
+            </ul>
+            `;
+			// response.data.results[0].geometry.location.lat + ',' + response.data.results[0].geometry.location.lng
+
+			// output to app
+			document.getElementById('formatted-address').innerHTML = formattedAddressOutput;
+			document.getElementById('address-componets').innerHTML = addressComponetsOutput;
+			document.getElementById('geometry').innerHTML = geometryOutput;
+		})
+		.catch(function(error) {
+			console.log(error);
+		});
+
+	// return longlat;
+}
+
+// let weatherURL = 'https://maps.googleapis.com/maps/api/geocode/json?address='
+// 		+ ${gameCity + "+" + gameState}
