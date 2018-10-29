@@ -6,7 +6,6 @@ const sportsAPI =
 
 const gameListingArea = document.querySelector('[games-this-week]');
 
-
 let pulledData;
 
 function myFunction() {
@@ -29,15 +28,17 @@ window.onclick = function(event) {
 };
 
 let pulledSportsData;
-
+sportsKey = 'c72fe47dccf64d6f932fcfaa1c3bbc47';
 fetch(sportsAPI, {
 	headers: {
-		'Ocp-Apim-Subscription-Key': 'c72fe47dccf64d6f932fcfaa1c3bbc47'
+		'Ocp-Apim-Subscription-Key': sportsKey
 	}
 })
 	.then((whatsFetched) => whatsFetched.json()) //converts to .JSON
 	// .then((convertedWhatsFetched) => (pulledSportsData = convertedWhatsFetched))
-	.then(convertGamesToElement);
+	.then(convertGamesToElement)
+	.then(geocode);
+
 // .then(() => console.log(pulledSportsData));
 
 // .then(() => console.log(pulledSportsData[34]))
@@ -117,8 +118,10 @@ function convertGamesToElement(gameData) {
 		// console.log(homeTeamName.class);
 		// homeGameDiv.classList.add(homeTeamName.split(' ').join('-'));
 		// document.body.appendChild(homeGameDiv);
-		// console.log(homeGameDiv);
+		let nameArray = element.Stadium['Name'];
+		return nameArray;
 	});
+	return gameData;
 	// awayGameDiv.classList.add('awayteam');
 	// homeGameDiv.innerHTML = (homeTeamName, awayGameDiv);
 }
@@ -143,6 +146,8 @@ var locationForm = document.getElementById('location-form');
 locationForm.addEventListener('submit', geocode);
 
 function geocode(event) {
+	// debugger;
+	// console.log(event);
 	// prevent actual submit
 	event.preventDefault();
 	var location = document.getElementById('location-input').value;
