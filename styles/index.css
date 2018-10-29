@@ -75,7 +75,7 @@ body {
 	margin:0; /* gets rid of white space around body */
 	height:200vh;
 	background:url("https://static.pexels.com/photos/1440/city-road-street-buildings.jpg") no-repeat center / contain;
-	background-color:#eee;
+	background-color: white;
 	position:relative; /*REQUIRED Sets up positioning for your footer*/
   }
   
@@ -83,8 +83,8 @@ body {
 	width:100%;
 	padding:6px;
 	padding-bottom:16px;
-	background: black;
-	color: white;
+	background:skyblue;
+	color:black;
 	font-weight:bold;
 	font-size:12px;
 	text-align:center;
@@ -96,10 +96,23 @@ body {
 	border-top:2px solid gray;
 	background-image:url(http://rs257.pbsrc.com/albums/hh234/tfm448/Snow411.gif~c200)
   }
+  
 .hometeam {
+<<<<<<< HEAD
 	color:white;
+=======
+	color:skyblue;
 }
 
+.theHomeTeam {
+	color:white;
+	
+>>>>>>> 88bef135e43facde3e394421ca9545188764fe3e
+}
+
+.theAwayTeam {
+	color:grey;
+}
 
 .flex-container {
 	flex-flow: row wrap;
@@ -112,4 +125,10 @@ body {
 	line-height: 50px;
 	font-size: 25px;
 	flex-direction: column;
+}
+#gamescore {
+	color: red;
+	font-size: 300%;
+	font-family: 'Courier New', Courier, monospace;
+	text-shadow: -.5px 0 white, 0 .5px white, .5px 0 white, 0 -.5px white;
 }
