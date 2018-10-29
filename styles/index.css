@@ -102,17 +102,20 @@ body {
 	color:skyblue;
 	text-align: left;
 	display: flex;
+	padding: 10px;
 }
 
 .theHomeTeam {
 	color: white;
 	text-align: left;
+	padding: 2px;
 }
 
 
 .theAwayTeam {
 	color:grey;
 	text-align: left;
+	padding: 2px;
 }
 
 .flex-container {
@@ -129,6 +132,7 @@ body {
 	flex-direction: wrap;
 	flex-flow: wrap;
 }
+
 #gamescore {
 	color: red;
 	font-size: 300%;
