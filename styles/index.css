@@ -99,15 +99,20 @@ body {
   
 .gameData {
 	color:skyblue;
+	text-align: left;
+	display: flex;
+	font-size: 20px;
 }
 
 .theHomeTeam {
 	color: white;
-	font-size: 24px;
+	text-align: left;
 }
+
 
 .theAwayTeam {
 	color:grey;
+	text-align: left;
 }
 
 .flex-container {
@@ -131,4 +136,8 @@ body {
 	font-size: 300%;
 	font-family: 'Courier New', Courier, monospace;
 	text-shadow: -.5px 0 white, 0 .5px white, .5px 0 white, 0 -.5px white;
+}
+
+.gameContainer {
+	display: flex;
 }
