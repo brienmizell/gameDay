@@ -27,6 +27,28 @@ window.onclick = function(event) {
 	}
 };
 
+// this shows the top button when the user
+// starts to scroll down
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+	if (document.body.scrollTop > 20 ||
+document.documentElement.scrollTop > 20) {
+		document.getElementById("myBtn").style.display = "block";
+	} else {
+		document.getElementById("myBtn").style.display = "none";
+	}
+}
+
+// when the user clicks on the top button,
+// it scrolls to the top of the document
+function topFunction() {
+	// for safari
+	document.body.scrollTop = 0;
+	// for chrome, firefox, IE and Opera
+	document.documentElement.scrollTop = 0;
+}
+
 let pulledSportsData;
 sportsKey = 'c72fe47dccf64d6f932fcfaa1c3bbc47';
 fetch(sportsAPI, {
