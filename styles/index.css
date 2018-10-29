@@ -106,9 +106,13 @@ body {
 }
 
 .theHomeTeam {
+<<<<<<< HEAD
 	color: white;
 	text-align: left;
 	padding: 2px;
+=======
+	color:white;
+>>>>>>> ee8f3781c97af313427435c6b04bc41c8a6cffc4
 }
 
 
@@ -138,10 +142,20 @@ body {
 	font-size: 300%;
 	font-family: 'Courier New', Courier, monospace;
 	text-shadow: -.5px 0 white, 0 .5px white, .5px 0 white, 0 -.5px white;
+<<<<<<< HEAD
 	padding: 15px;
 }
 
 .gameContainer {
 	display: flex wrap;
 	padding: 25px;
+=======
+}
+
+table {
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-size: 24px;
+	border: 5px solid grey;
+	background-color: black;
+>>>>>>> ee8f3781c97af313427435c6b04bc41c8a6cffc4
 }
