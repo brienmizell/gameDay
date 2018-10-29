@@ -116,9 +116,7 @@ body {
 }
 
 .flex-container {
-	flex-flow: row wrap;
-	background-color:crimson;
-
+	flex-flow: wrap;
 }
 
 
@@ -126,8 +124,8 @@ body {
 .flex-container > div {
 	background-color: black;
 	text-align: center;
-	line-height: 50px;
-	font-size: 25px;
+	line-height: 25px;
+	font-size: 12px;
 	flex-direction: wrap;
 	flex-flow: wrap;
 }
@@ -139,5 +137,6 @@ body {
 }
 
 .gameContainer {
-	display: flex;
+	display: flex wrap;
+	padding: 25px;
 }
