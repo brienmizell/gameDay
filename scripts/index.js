@@ -6,6 +6,9 @@ const sportsAPI =
 
 const gameListingArea = document.querySelector('[games-this-week]');
 
+
+let pulledData;
+
 function myFunction() {
 	document.getElementById('myDropdown').classList.toggle('show');
 }
@@ -26,6 +29,7 @@ window.onclick = function(event) {
 };
 
 let pulledSportsData;
+
 fetch(sportsAPI, {
 	headers: {
 		'Ocp-Apim-Subscription-Key': 'c72fe47dccf64d6f932fcfaa1c3bbc47'
