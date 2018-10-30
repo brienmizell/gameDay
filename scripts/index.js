@@ -9,7 +9,6 @@ const gameListingArea = document.querySelector('[games-this-week]');
 
 let pulledData;
 
-
 // function myFunction() {
 // document.getElementById('myDropdown').classList.toggle('show');
 // // this shows the top button when the user
@@ -42,14 +41,15 @@ let pulledData;
 // };
 // this shows the top button when the user
 // starts to scroll down
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function() {
+	scrollFunction();
+};
 
 function scrollFunction() {
-	if (document.body.scrollTop > 20 ||
-document.documentElement.scrollTop > 20) {
-		document.getElementById("myBtn").style.display = "block";
+	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+		document.getElementById('myBtn').style.display = 'block';
 	} else {
-		document.getElementById("myBtn").style.display = "none";
+		document.getElementById('myBtn').style.display = 'none';
 	}
 }
 
@@ -61,7 +61,6 @@ function topFunction() {
 	// for chrome, firefox, IE and Opera
 	document.documentElement.scrollTop = 0;
 }
-
 
 let pulledSportsData;
 sportsKey = 'c72fe47dccf64d6f932fcfaa1c3bbc47';
@@ -171,9 +170,9 @@ function convertGamesToElement(gameData) {
 			let lowTemp = weatherArray[1];
 			let precipChance = weatherArray[2];
 			let highElement = document.createElement('span');
-			highElement.textContent = `High: ${highTemp}`;
+			highElement.textContent = `High Temp: ${highTemp}`;
 			let lowElement = document.createElement('span');
-			lowElement.textContent = `Low: ${lowTemp}`;
+			lowElement.textContent = `Low Temp: ${lowTemp}`;
 			let precipElement = document.createElement('span');
 			precipElement.textContent = `Precipitation Chance: ${precipChance}`;
 			gameDataDiv.append(document.createElement('br'));
