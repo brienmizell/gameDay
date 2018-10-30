@@ -30,18 +30,49 @@ h1 {
 	#mainHeader {
 		font-size: 20px;
 	}
+	.eachGame {
+		font-size: 15px;
+	}
+	#gamescore {
+		font-size: 200%;
+	}
 }
 @media (min-width: 768px) {
 	#mainHeader {
 		font-size: 40px;
+	}
+	.eachGame {
+		font-size: 20px;
+	}
+	#gamescore {
+		font-size: 400%;
 	}
 }
 @media (min-width: 1200px) {
 	#mainHeader {
 		font-size: 55px;
 	}
+	.eachGame {
+		font-size: 25px;
+	}
+	#gamescore {
+		font-size: 500%;
+	}
 }
 
+.eachGame {
+	border: 2px solid whitesmoke;
+	border-radius: 10px;
+	width: 450px;
+	margin: 10px;
+}
+
+.gameDataDiv {
+	border-top: 2px solid whitesmoke;
+	margin: 0;
+	text-align: center;
+	padding-top: 15px;
+}
 
 #myInput {
 	/* add a search icon to input */
@@ -73,83 +104,79 @@ h1 {
 
 /* animation */
 body {
-	margin:0; /* gets rid of white space around body */
-	height:200vh;
-	background:url("https://static.pexels.com/photos/1440/city-road-street-buildings.jpg") no-repeat center / contain;
-	background-color:black;
-	position:relative; /*REQUIRED Sets up positioning for your footer*/
-  }
-  
-  #sticky {
-	width:100%;
-	padding:6px;
-	padding-bottom:16px;
-	background:skyblue;
-	color:black;
-	font-weight:bold;
-	font-size:12px;
-	text-align:center;
-	position:fixed;    /*Here's what sticks it*/
-	bottom:0;          /*to the bottom of the body*/
-	left:0;            /*and to the left of the body.*/
-	
+	margin: 0; /* gets rid of white space around body */
+	height: 200vh;
+	background: url("https://static.pexels.com/photos/1440/city-road-street-buildings.jpg") no-repeat center / contain;
+	background-color: black;
+	position: relative; /*REQUIRED Sets up positioning for your footer*/
+}
+
+#sticky {
+	width: 100%;
+	padding: 6px;
+	padding-bottom: 16px;
+	background: skyblue;
+	color: black;
+	font-weight: bold;
+	font-size: 12px;
+	text-align: center;
+	position: fixed; /*Here's what sticks it*/
+	bottom: 0; /*to the bottom of the body*/
+	left: 0; /*and to the left of the body.*/
+
 	/*EFFECTS*/
-	border-top:2px solid gray;
-	background-image:url(http://rs257.pbsrc.com/albums/hh234/tfm448/Snow411.gif~c200)
-  }
-  
+	border-top: 2px solid gray;
+	background-image: url(http://rs257.pbsrc.com/albums/hh234/tfm448/Snow411.gif~c200);
+}
+
 .gameData {
-	color:skyblue;
+	color: skyblue;
 	text-align: left;
 	display: flex;
 	padding: 10px;
 }
 
 .theHomeTeam {
-<<<<<<< HEAD
 	color: white;
 	text-align: left;
 	padding: 2px;
-=======
-	color:white;
->>>>>>> ee8f3781c97af313427435c6b04bc41c8a6cffc4
 }
 
-
 .theAwayTeam {
-	color:grey;
+	color: grey;
 	text-align: left;
 	padding: 2px;
+	align-content: space-between;
 }
 
 .flex-container {
 	flex-flow: wrap;
+	align-content: space-between;
+	justify-content: center;
 }
-
-
 
 .flex-container > div {
 	background-color: black;
 	text-align: left;
 	line-height: 25px;
-	font-size: 12px;
 	flex-direction: wrap;
 	flex-flow: wrap;
 }
 
 #gamescore {
 	color: red;
-	font-size: 300%;
 	font-family: 'Courier New', Courier, monospace;
 	text-shadow: -.5px 0 white, 0 .5px white, .5px 0 white, 0 -.5px white;
-<<<<<<< HEAD
-	padding: 15px;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	text-align: center;
 }
 
 .gameContainer {
 	display: flex wrap;
-	padding: 25px;
-=======
+	align-content: space-between;
+	padding: 15px;
 }
 
 table {
@@ -157,5 +184,4 @@ table {
 	font-size: 24px;
 	border: 5px solid grey;
 	background-color: black;
->>>>>>> ee8f3781c97af313427435c6b04bc41c8a6cffc4
 }

@@ -85,6 +85,7 @@ function convertGamesToElement(gameData) {
 		let homeScore = element.HomeTeamScore || 0;
 		let awayScore = element.AwayTeamScore || 0;
 		let startTime = element.DateTime.substring(5, 10) + ' ' + element.DateTime.substring(11, 16);
+		var newLine = '\r\n';
 		// startTime.substring(4, 10);
 		// let gameLocationData = element.
 		let eachGameInfo = document.createElement('div');
@@ -112,7 +113,16 @@ function convertGamesToElement(gameData) {
 		// game info
 		let gameDataDiv = document.createElement('p');
 		gameDataDiv.classList.add('gameDataDiv');
-		gameDataDiv.textContent = startTime + ' ' + stadiumName + ' ' + gameCity + ', ' + gameState;
+		gameDataDiv.innerText =
+			startTime +
+			`
+		` +
+			stadiumName +
+			`
+		` +
+			gameCity +
+			', ' +
+			gameState;
 		theGameDiv.appendChild(gameDataDiv);
 
 		// console.log(homeTeamName.class);
