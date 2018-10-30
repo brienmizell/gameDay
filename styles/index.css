@@ -8,6 +8,7 @@ html {
 	box-sizing: inherit;
 }
 
+
 body {
 	background-color: black;
 	margin: 0;
@@ -162,7 +163,7 @@ table {
 	z-index: 99;
 	border: grey 5px;
 	outline: none;
-	background-color: red;
+	background-color: crimson;
 	color: black;
 	cursor: pointer;
 	padding: 15px;
@@ -171,5 +172,6 @@ table {
 }
 
 #myBtn:hover {
-	background-color: crimson;
+	background-color: black;
+	color: crimson;
 }
