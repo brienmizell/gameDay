@@ -229,7 +229,7 @@ function geocode(stadiumName) {
 				// let longlat =
 				// response.data.results[0].geometry.location.lat + ',' + response.data.results[0].geometry.location.lng;
 
-				console.log(response);
+				// console.log(response);
 				// formatted adress
 
 				// var formattedAddress = response.data.results[0].formatted_address;
@@ -283,7 +283,7 @@ function geocode(stadiumName) {
 // 		+ ${gameCity + "+" + gameState};
 function getDarksky(latLng) {
 	let darksky = 'https://my-little-cors-proxy.herokuapp.com/https://api.darksky.net/forecast/';
-	let darkSkykey = 'b893f748f4f801cdaca5714dabc361ce';
+	let darkSkykey = '15a54349e1825485061f645acebcc9c3';
 	// let lat = response.data.results[0].geometry.location.lat;
 	// let lng = -84.373313;
 	let uri = darksky + darkSkykey + '/' + latLng;
