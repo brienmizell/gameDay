@@ -1,8 +1,9 @@
 // When the user clicks on the button,
 // toggle between hiding and showing
 // the dropdown content
-const sportsAPI =
-	'https://my-little-cors-proxy.herokuapp.com/https://api.fantasydata.net/v3/cfb/stats/json/GamesByWeek/2018/10';
+var page = 10;
+var sportsAPI =
+	'https://my-little-cors-proxy.herokuapp.com/https://api.fantasydata.net/v3/cfb/stats/json/GamesByWeek/2018/' + page;
 
 const gameListingArea = document.querySelector('[games-this-week]');
 
@@ -100,14 +101,14 @@ function convertGamesToElement(gameData) {
 		let awayTeamPara = document.createElement('p');
 		awayTeamPara.classList.add(awayTeamName.split(' ').join('-'));
 		awayTeamPara.classList.add('theAwayTeam');
-		awayTeamPara.textContent = awayTeamName + '    ' + awayScore;
+		awayTeamPara.innerText = awayTeamName + '    ' + awayScore;
 		theGameDiv.appendChild(awayTeamPara);
 
 		//HOME TEAM
 		let homeTeamDiv = document.createElement('p');
 		homeTeamDiv.classList.add(homeTeamName.split(' ').join('-'));
 		homeTeamDiv.classList.add('theHomeTeam');
-		homeTeamDiv.textContent = homeTeamName + '    ' + homeScore;
+		homeTeamDiv.innerText = homeTeamName + '    ' + homeScore;
 		theGameDiv.appendChild(homeTeamDiv);
 
 		// game info
@@ -155,7 +156,7 @@ var locationForm = document.getElementById('location-form');
 // listen for submit
 locationForm.addEventListener('submit', geocode);
 
-function geocode(event) {
+function geocode(response) {
 	// debugger;
 	// console.log(event);
 	// prevent actual submit
@@ -216,7 +217,56 @@ function geocode(event) {
 		});
 
 	// return longlat;
+	return response;
+	// return lng
+	// return lng;
 }
 
 // let weatherURL = 'https://maps.googleapis.com/maps/api/geocode/json?address='
 // 		+ ${gameCity + "+" + gameState}
+
+// let darksky = 'https://my-little-cors-proxy.herokuapp.com/https://api.darksky.net/forecast/';
+// let darkSkykey = 'b893f748f4f801cdaca5714dabc361ce';
+// let lat = response.data.results[0].geometry.location.lat;
+// // let lng = -84.373313;
+// let uri = darksky + darkSkykey + '/' + lat + ',' + lng;
+// console.log(uri);
+// uri = uri.concat('?units=us&exclude=minutely,hourly&lang=en');
+// // units - ca, si, us, uk
+// // exclude - minutely,hourly,daily,currently
+// // lang -
+// let options = {
+// 	method: 'GET',
+// 	mode: 'cors'
+// };
+// // let req = (uri, options);
+
+// fetch(uri, options)
+// 	.then((response) => {
+// 		if (response.ok) {
+// 			return response.json().then(getWeatherData);
+// 		} else {
+// 			throw new Error('Bad HTTP!');
+// 		}
+// 	})
+// 	.then((weatherData) => {
+// 		// console.log(
+// 		// 	weatherData.daily[5].temperatureHigh,
+// 		// 	weatherData.daily[5].temperatureLow,
+// 		// 	weatherData.daily[5].precipProbability
+// 		// );
+// 		//console.log('JSON data provided');
+// 	})
+// 	.catch((err) => {
+// 		console.log('ERROR:', err.message);
+// 	});
+
+// // console.log(response);
+
+// function getWeatherData(weatherData) {
+// 	console.log(
+// 		weatherData.daily.data[5].temperatureHigh,
+// 		weatherData.daily.data[5].temperatureLow,
+// 		weatherData.daily.data[5].precipProbability
+// 	);
+// }
