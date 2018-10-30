@@ -9,24 +9,36 @@ const gameListingArea = document.querySelector('[games-this-week]');
 
 let pulledData;
 
-function myFunction() {
-	document.getElementById('myDropdown').classList.toggle('show');
-}
+// function myFunction() {
+// document.getElementById('myDropdown').classList.toggle('show');
+// // this shows the top button when the user
+// // starts to scroll down
+// window.onscroll = function() {
+// 	scrollFunction();
+// };
 
-// Close the dropdown menu if the user
-// clicks outside of it
-window.onclick = function(event) {
-	if (!event.target.matches('.dropbtn')) {
-		var dropdowns = document.getElementsByClassName('dropdown-content');
-		var i;
-		for (i = 0; i < dropdowns.length; i++) {
-			var openDropdown = dropdowns[i];
-			if (openDropdown.classList.contains('show')) {
-				openDropdown.classList.remove('show');
-			}
-		}
-	}
-};
+// function scrollFunction() {
+// 	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+// 		document.getElementById('myBtn').style.display = 'block';
+// 	} else {
+// 		document.getElementById('myBtn').style.display = 'none';
+// 	}
+// }
+
+// // Close the dropdown menu if the user
+// // clicks outside of it
+// window.onclick = function(event) {
+// 	if (!event.target.matches('.dropbtn')) {
+// 		var dropdowns = document.getElementsByClassName('dropdown-content');
+// 		var i;
+// 		for (i = 0; i < dropdowns.length; i++) {
+// 			var openDropdown = dropdowns[i];
+// 			if (openDropdown.classList.contains('show')) {
+// 				openDropdown.classList.remove('show');
+// 			}
+// 		}
+// 	}
+// };
 
 let pulledSportsData;
 sportsKey = 'c72fe47dccf64d6f932fcfaa1c3bbc47';
@@ -37,8 +49,8 @@ fetch(sportsAPI, {
 })
 	.then((whatsFetched) => whatsFetched.json()) //converts to .JSON
 	// .then((convertedWhatsFetched) => (pulledSportsData = convertedWhatsFetched))
-	.then(convertGamesToElement)
-	.then(geocode);
+	.then(convertGamesToElement);
+// .then(geocode);
 
 // .then(() => console.log(pulledSportsData));
 
@@ -86,7 +98,7 @@ function convertGamesToElement(gameData) {
 		let homeScore = element.HomeTeamScore || 0;
 		let awayScore = element.AwayTeamScore || 0;
 		let startTime = element.DateTime.substring(5, 10) + ' ' + element.DateTime.substring(11, 16);
-		var newLine = '\r\n';
+		// var newLine = '\r\n';
 		// startTime.substring(4, 10);
 		// let gameLocationData = element.
 		let eachGameInfo = document.createElement('div');
@@ -129,8 +141,11 @@ function convertGamesToElement(gameData) {
 		// console.log(homeTeamName.class);
 		// homeGameDiv.classList.add(homeTeamName.split(' ').join('-'));
 		// document.body.appendChild(homeGameDiv);
-		let nameArray = element.Stadium['Name'];
-		return nameArray;
+		// let nameArray = element.Stadium['Name'];
+		// return nameArray;
+		geocode(stadiumName).then(getDarksky).then(function(weatherArray) {
+			console.log(weatherArray);
+		});
 	});
 	return gameData;
 	// awayGameDiv.classList.add('awayteam');
@@ -156,117 +171,125 @@ var locationForm = document.getElementById('location-form');
 // listen for submit
 locationForm.addEventListener('submit', geocode);
 
-function geocode(response) {
+function geocode(stadiumName) {
 	// debugger;
 	// console.log(event);
 	// prevent actual submit
-	event.preventDefault();
-	var location = document.getElementById('location-input').value;
-	axios
-		.get('https://maps.googleapis.com/maps/api/geocode/json', {
-			params: {
-				address: location,
-				key: 'AIzaSyB3cRW6zO8D3INc-NHDFA-0ck77gQAYpOU'
-			}
-		})
-		// .then(whatsFetched)
-		.then(function(response) {
-			// log full response
-			// let longlat =
-			// response.data.results[0].geometry.location.lat + ',' + response.data.results[0].geometry.location.lng;
+	// event.preventDefault();
+	// var location = document.getElementById('location-input').value;
 
-			console.log(response);
-			// formatted adress
+	return (
+		axios
+			.get('https://maps.googleapis.com/maps/api/geocode/json', {
+				params: {
+					address: stadiumName,
+					key: 'AIzaSyB3cRW6zO8D3INc-NHDFA-0ck77gQAYpOU'
+				}
+			})
+			// .then(whatsFetched)
+			.then(function(response) {
+				// log full response
+				// let longlat =
+				// response.data.results[0].geometry.location.lat + ',' + response.data.results[0].geometry.location.lng;
 
-			var formattedAddress = response.data.results[0].formatted_address;
-			var formattedAddressOutput = `
-            <ul class="list-group">
-                <li class="list-group-item">${formattedAddress}</li>
-            </ul>
-            `;
+				console.log(response);
+				// formatted adress
 
-			// address Componets
-			var addressComponets = response.data.results[0].address_components;
-			var addressComponetsOutput = '<ul class="list-group">';
-			for (var i = 0; i < addressComponets.length; i++) {
-				addressComponetsOutput += `
-                <li class="list-group_item"><strong>${addressComponets[i].types[0]}</strong>: ${addressComponets[i]
-					.long_name}</li>
-                `;
-			}
-			addressComponetsOutput += '</ul>';
+				// var formattedAddress = response.data.results[0].formatted_address;
+				// var formattedAddressOutput = `
+				// <ul class="list-group">
+				//     <li class="list-group-item">${formattedAddress}</li>
+				// </ul>
+				// `;
 
-			// geometry
-			var lat = response.data.results[0].geometry.location.lat;
-			var lng = response.data.results[0].geometry.location.lng;
-			var geometryOutput = `
-            <ul class="list-group">
-                <li class="list-group-item"><strong>Latitude</strong>${lat}</li>
-                <li class="list-group-item"><strong>Longitude</strong>${lng}</li>
-            </ul>
-            `;
-			// response.data.results[0].geometry.location.lat + ',' + response.data.results[0].geometry.location.lng
+				// address Componets
+				// var addressComponets = response.data.results[0].address_components;
+				// var addressComponetsOutput = '<ul class="list-group">';
+				// for (var i = 0; i < addressComponets.length; i++) {
+				// 	addressComponetsOutput += `
+				//     <li class="list-group_item"><strong>${addressComponets[i].types[0]}</strong>: ${addressComponets[i]
+				// 		.long_name}</li>
+				//     `;
+				// }
+				// addressComponetsOutput += '</ul>';
 
-			// output to app
-			document.getElementById('formatted-address').innerHTML = formattedAddressOutput;
-			document.getElementById('address-componets').innerHTML = addressComponetsOutput;
-			document.getElementById('geometry').innerHTML = geometryOutput;
-		})
-		.catch(function(error) {
-			console.log(error);
-		});
+				// geometry
+				var lat = response.data.results[0].geometry.location.lat;
+				var lng = response.data.results[0].geometry.location.lng;
+				var latLng = lat + ', ' + lng;
+				// var geometryOutput = `
+				// <ul class="list-group">
+				//     <li class="list-group-item"><strong>Latitude</strong>${lat}</li>
+				//     <li class="list-group-item"><strong>Longitude</strong>${lng}</li>
+				// </ul>
+				// `;
+				// response.data.results[0].geometry.location.lat + ',' + response.data.results[0].geometry.location.lng
+
+				// output to app
+				// document.getElementById('formatted-address').innerHTML = formattedAddressOutput;
+				// document.getElementById('address-componets').innerHTML = addressComponetsOutput;
+				// document.getElementById('geometry').innerHTML = geometryOutput;
+				return latLng;
+			})
+			.catch(function(error) {
+				console.log(error);
+			})
+	);
 
 	// return longlat;
-	return response;
+	// return latLng;
 	// return lng
 	// return lng;
 }
 
 // let weatherURL = 'https://maps.googleapis.com/maps/api/geocode/json?address='
-// 		+ ${gameCity + "+" + gameState}
+// 		+ ${gameCity + "+" + gameState};
+function getDarksky(latLng) {
+	let darksky = 'https://my-little-cors-proxy.herokuapp.com/https://api.darksky.net/forecast/';
+	let darkSkykey = 'b893f748f4f801cdaca5714dabc361ce';
+	// let lat = response.data.results[0].geometry.location.lat;
+	// let lng = -84.373313;
+	let uri = darksky + darkSkykey + '/' + latLng;
+	console.log(uri);
+	uri = uri.concat('?units=us&exclude=minutely,hourly&lang=en');
+	// units - ca, si, us, uk
+	// exclude - minutely,hourly,daily,currently
+	// lang -
+	let options = {
+		method: 'GET',
+		mode: 'cors'
+	};
+	// let req = (uri, options);
 
-// let darksky = 'https://my-little-cors-proxy.herokuapp.com/https://api.darksky.net/forecast/';
-// let darkSkykey = 'b893f748f4f801cdaca5714dabc361ce';
-// let lat = response.data.results[0].geometry.location.lat;
-// // let lng = -84.373313;
-// let uri = darksky + darkSkykey + '/' + lat + ',' + lng;
-// console.log(uri);
-// uri = uri.concat('?units=us&exclude=minutely,hourly&lang=en');
-// // units - ca, si, us, uk
-// // exclude - minutely,hourly,daily,currently
-// // lang -
-// let options = {
-// 	method: 'GET',
-// 	mode: 'cors'
+	return (
+		fetch(uri, options)
+			.then((response) => {
+				if (response.ok) {
+					return response.json().then(getWeatherData);
+				} else {
+					throw new Error('Bad HTTP!');
+				}
+			})
+			// .then((weatherData) => {
+			// 	// console.log(
+			// 	// 	weatherData.daily[5].temperatureHigh,
+			// 	// 	weatherData.daily[5].temperatureLow,
+			// 	// 	weatherData.daily[5].precipProbability
+			// 	// );
+			// 	//console.log('JSON data provided');
+			// })
+			.catch((err) => {
+				console.log('ERROR:', err.message);
+			})
+	);
+}
 // };
-// // let req = (uri, options);
+// console.log(response);
 
-// fetch(uri, options)
-// 	.then((response) => {
-// 		if (response.ok) {
-// 			return response.json().then(getWeatherData);
-// 		} else {
-// 			throw new Error('Bad HTTP!');
-// 		}
-// 	})
-// 	.then((weatherData) => {
-// 		// console.log(
-// 		// 	weatherData.daily[5].temperatureHigh,
-// 		// 	weatherData.daily[5].temperatureLow,
-// 		// 	weatherData.daily[5].precipProbability
-// 		// );
-// 		//console.log('JSON data provided');
-// 	})
-// 	.catch((err) => {
-// 		console.log('ERROR:', err.message);
-// 	});
-
-// // console.log(response);
-
-// function getWeatherData(weatherData) {
-// 	console.log(
-// 		weatherData.daily.data[5].temperatureHigh,
-// 		weatherData.daily.data[5].temperatureLow,
-// 		weatherData.daily.data[5].precipProbability
-// 	);
-// }
+function getWeatherData(weatherData) {
+	return [
+		weatherData.daily.data[4].temperatureHigh,
+		weatherData.daily.data[4].temperatureLow,
+		weatherData.daily.data[4].precipProbability
+	];
+}
