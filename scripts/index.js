@@ -144,6 +144,21 @@ function convertGamesToElement(gameData) {
 		// let nameArray = element.Stadium['Name'];
 		// return nameArray;
 		geocode(stadiumName).then(getDarksky).then(function(weatherArray) {
+			let highTemp = weatherArray[0];
+			let lowTemp = weatherArray[1];
+			let precipChance = weatherArray[2];
+			let highElement = document.createElement('span');
+			highElement.textContent = `High: ${highTemp}`;
+			let lowElement = document.createElement('span');
+			lowElement.textContent = `Low: ${lowTemp}`;
+			let precipElement = document.createElement('span');
+			precipElement.textContent = `Precipitation Chance: ${precipChance}`;
+			gameDataDiv.append(document.createElement('br'));
+			gameDataDiv.append(highElement);
+			gameDataDiv.append(document.createElement('br'));
+			gameDataDiv.append(lowElement);
+			gameDataDiv.append(document.createElement('br'));
+			gameDataDiv.append(precipElement);
 			console.log(weatherArray);
 		});
 	});
